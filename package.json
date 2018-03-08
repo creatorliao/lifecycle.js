@@ -1,0 +1,63 @@
+{
+  "name": "lifecycle.js",
+  "description": "JavaScript lifecycle manager.",
+  "version": "0.1.0",
+  "main": "dist/lifecycle.common.js",
+  "module": "dist/lifecycle.esm.js",
+  "unpkg": "dist/lifecycle.js",
+  "types": "types/index.d.ts",
+  "repository": "fengyuanchen/lifecycle.js",
+  "homepage": "https://github.com/fengyuanchen/lifecycle.js",
+  "license": "MIT",
+  "author": {
+    "name": "Chen Fengyuan",
+    "url": "http://chenfengyuan.com"
+  },
+  "files": [
+    "src",
+    "dist",
+    "types"
+  ],
+  "keywords": [
+    "lifecycle",
+    "manager",
+    "phases",
+    "stages",
+    "eventemitter",
+    "javascript"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "clear": "del-cli dist",
+    "commitmsg": "npm run lint && commitlint -e",
+    "compress": "uglifyjs dist/lifecycle.js -o dist/lifecycle.min.js -c -m --comments /^!/",
+    "lint": "eslint src test --fix",
+    "release": "npm run clear && npm run lint && npm run build && npm run compress && npm test",
+    "start": "rollup -c -m -w",
+    "test": "karma start test/karma.conf.js"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^6.1.3",
+    "@commitlint/config-angular": "^6.1.3",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "del-cli": "^1.1.0",
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "husky": "^0.14.3",
+    "karma": "^2.0.0",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-rollup-preprocessor": "^5.1.1",
+    "mocha": "^5.0.4",
+    "puppeteer": "^1.1.1",
+    "rollup": "^0.56.5",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-watch": "^4.3.1",
+    "uglify-js": "^3.3.13"
+  }
+}
